@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity(), SurfaceHolder.Callback {
     }
 
     override fun surfaceCreated(holder: SurfaceHolder?) {
-        sooRinPlayer.play(applicationContext,holder,R.raw.sbs)
+        if(holder == surface_view.holder)
+            sooRinPlayer.playback(applicationContext,holder,R.raw.sbs)
+//            sooRinPlayer.playback(applicationContext,holder)
     }
 }
