@@ -1,5 +1,6 @@
 package com.alticast.soorinplayerproject
 
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.SurfaceHolder
@@ -23,8 +24,7 @@ class MainActivity : AppCompatActivity(), SurfaceHolder.Callback {
     }
 
     override fun surfaceCreated(holder: SurfaceHolder?) {
-        if(holder == surface_view.holder)
-            sooRinPlayer.playback(applicationContext,holder,R.raw.sbs)
-//            sooRinPlayer.playback(applicationContext,holder)
+          sooRinPlayer.playback(applicationContext,holder,R.raw.sbs)
+//        sooRinPlayer.playback(applicationContext,holder,Uri.parse("rawresource" + ":///" + R.raw.sbs))
     }
 }

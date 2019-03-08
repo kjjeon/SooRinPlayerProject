@@ -21,6 +21,7 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import com.alticast.soorinplayer.utils.AltLog;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DataSpec;
@@ -33,7 +34,7 @@ import java.io.InputStream;
 
 
 public final class RawDataSource implements DataSource {
-
+    private static final String TAG = "RawDataSource";
     /**
      * Thrown when an {@link IOException} is encountered reading from a raw resource.
      */
@@ -88,7 +89,7 @@ public final class RawDataSource implements DataSource {
 
     @Override
     public long open(DataSpec dataSpec) throws RawResourceDataSourceException {
-        Log.d("Raw", "openopenopenopenopenopenopenopenopenopenopenopen");
+        Log.d(TAG, "dataSpec = " + dataSpec.toString());
         try {
             uri = dataSpec.uri;
             if (!TextUtils.equals(RAW_RESOURCE_SCHEME, uri.getScheme())) {
@@ -133,7 +134,7 @@ public final class RawDataSource implements DataSource {
 
     @Override
     public int read(byte[] buffer, int offset, int readLength) throws RawResourceDataSourceException {
-        Log.d("Raw", "offset = " +  offset + "readLength = " +  readLength);
+//        AltLog.d(TAG, "offset = " +  offset + "readLength = " +  readLength);
         if (readLength == 0) {
             return 0;
         } else if (bytesRemaining == 0) {
@@ -172,6 +173,7 @@ public final class RawDataSource implements DataSource {
 
     @Override
     public void close() throws RawResourceDataSourceException {
+        AltLog.d(TAG, "close");
         uri = null;
         try {
             if (inputStream != null) {
