@@ -1,12 +1,9 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.alticast.soorinplayer'
+
 version = '0.0.1'
 
 android {
     compileSdkVersion 28
-
-
 
     defaultConfig {
         minSdkVersion 19
@@ -25,17 +22,55 @@ android {
         }
     }
 
+    libraryVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${project.name}-${defaultConfig.versionName}-${variant.name}.aar"
+        }
+    }
+    afterEvaluate {
+        assembleDebug.finalizedBy(copyAAR)
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-    implementation 'com.google.android.exoplayer:exoplayer:2.7.3'
-    compileOnly 'org.projectlombok:lombok:1.18.6'
-    annotationProcessor 'org.projectlombok:lombok:1.18.6'
+    api fileTree(dir: 'libs', include: ['*.aar'])
 }
+
+task copyAAR(type: Copy) {
+    from('build/outputs/aar/')
+    into '../app/libs/'
+    include '*.aar'
+//    ['libs/', '../app/libs/'].each { dest ->
+//        copy {
+//            from('build/outputs/aar/')
+//            into dest
+//            include '*.aar'
+//        }
+//    }
+}
+
+//task makeexoplayeraar(type:Zip) {
+//    from "${buildDir}/intermediates/exploded-aar/com.google.android.exoplayer/exoplayer/2.7.3"
+//    include '*'
+//    include '*/*' //to include contents of a folder present inside Reports directory
+//    archiveName 'exoplayer-2.7.3.aar'
+//    destinationDir(file("${buildDir}/outputs/aar"))
+//}
+//
+//tasks['makeexoplayeraar'].doFirst {
+//    file(
+//            "${buildDir}/intermediates/exploded-aar/com.google.android.exoplayer/exoplayer/2.7.3/jars/classes.jar").renameTo(
+//            "${buildDir}/intermediates/exploded-aar/com.google.android.exoplayer/exoplayer/2.7.3/classes.jar"
+//    )
+//}

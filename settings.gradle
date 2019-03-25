@@ -1,1 +1,1 @@
-include ':app', ':soorinplayer'
+include ':app', ':soorinplayer', ':extension'

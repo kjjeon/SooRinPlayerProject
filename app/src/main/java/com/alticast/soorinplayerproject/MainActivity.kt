@@ -1,6 +1,5 @@
 package com.alticast.soorinplayerproject
 
-import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.SurfaceHolder
@@ -15,6 +14,7 @@ class MainActivity : AppCompatActivity(), SurfaceHolder.Callback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         surface_view.holder.addCallback(this)
+
     }
 
     override fun surfaceChanged(holder: SurfaceHolder?, format: Int, width: Int, height: Int) {
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), SurfaceHolder.Callback {
     }
 
     override fun surfaceCreated(holder: SurfaceHolder?) {
-          sooRinPlayer.playback(applicationContext,holder,R.raw.sbs)
+        sooRinPlayer.playback(applicationContext,holder,R.raw.vid_bigbuckbunny)
 //        sooRinPlayer.playback(applicationContext,holder,Uri.parse("rawresource" + ":///" + R.raw.sbs))
     }
 }

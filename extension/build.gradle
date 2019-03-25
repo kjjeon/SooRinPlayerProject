@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+apply plugin: "com.mobbeel.plugin"
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "0.0.1"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    aarPlugin {
+        includeAllInnerDependencies true  // It's false for default
+    }
+
+    libraryVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${project.name}-${defaultConfig.versionName}-${variant.name}.aar"
+        }
+    }
+    afterEvaluate {
+        assembleDebug.finalizedBy(copyAAR)
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    api 'com.google.android.exoplayer:exoplayer-core:2.7.3'
+}
+
+task copyAAR(type: Copy) {
+    ['./soorinplayer/libs', '../app/libs/'].each { dest ->
+        copy {
+            from('build/outputs/aar/')
+            into dest
+            include '*.aar'
+        }
+    }
+//    from('build/outputs/aar/')
+//    into '../soorinplayer/libs'
+//    include '*.aar'
+}
