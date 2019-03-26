@@ -35,7 +35,6 @@ android {
     afterEvaluate {
         assembleDebug.finalizedBy(copyAAR)
     }
-
 }
 
 dependencies {
@@ -46,16 +45,20 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     api 'com.google.android.exoplayer:exoplayer-core:2.7.3'
+    api 'com.google.android.exoplayer:exoplayer:r1.5.11'
 }
 
 task copyAAR(type: Copy) {
-    ['./soorinplayer/libs', '../app/libs/'].each { dest ->
-        copy {
-            from('build/outputs/aar/')
-            into dest
-            include '*.aar'
-        }
-    }
+    from('build/tmp/copyDebugDependencies/debug/libs')
+    into '../soorinplayer/libs'
+    include '*.jar'
+//    ['../soorinplayer/libs', '../app/libs/'].each { dest ->
+//        copy {
+//            from('build/outputs/aar/')
+//            into dest
+//            include '*.aar'
+//        }
+//    }
 //    from('build/outputs/aar/')
 //    into '../soorinplayer/libs'
 //    include '*.aar'
