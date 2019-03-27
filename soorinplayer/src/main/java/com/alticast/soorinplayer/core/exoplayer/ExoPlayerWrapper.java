@@ -1,8 +1,11 @@
 package com.alticast.soorinplayer.core.exoplayer;
 
 import android.content.Context;
+import android.graphics.SurfaceTexture;
 import android.net.Uri;
+import android.view.Surface;
 import android.view.SurfaceHolder;
+import com.alticast.soorinplayer.R;
 import com.alticast.soorinplayer.core.MediaPlayer;
 import com.alticast.soorinplayer.source.TsDataSourceFactory;
 import com.google.android.exoplayer2.ExoPlayerFactory;
@@ -66,4 +69,29 @@ public class ExoPlayerWrapper implements MediaPlayer {
         player.setPlayWhenReady(true);
         return 0;
     }
+
+    @Override
+    public int playback(Context context, SurfaceTexture surfaceTexture) {
+        BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+        TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
+        TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
+
+        //Create the player
+        SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(context, trackSelector);
+        Surface surface = new Surface(surfaceTexture);
+        player.setVideoSurface(surface);
+        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(context,
+                Util.getUserAgent(context, "SooRinPlayer"));
+
+        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                .createMediaSource(RawResourceDataSource.buildRawResourceUri(R.raw.test));
+
+        LoopingMediaSource loopingMediaSource = new LoopingMediaSource(videoSource,2);
+        // Prepare the player with the source.
+        player.prepare(loopingMediaSource);
+        //auto start playing
+        player.setPlayWhenReady(true);
+        return 0;
+    }
+
 }
