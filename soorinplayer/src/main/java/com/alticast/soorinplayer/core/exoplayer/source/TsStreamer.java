@@ -1,4 +1,4 @@
-package com.alticast.soorinplayer.source;
+package com.alticast.soorinplayer.core.exoplayer.source;
 
 public interface TsStreamer {
 

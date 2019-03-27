@@ -1,8 +1,7 @@
 package com.alticast.soorinplayerproject;
 
-import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
-import com.alticast.soorinplayer.core.exoplayer.GLUtil;
+import com.alticast.soorinplayer.core.gl.GLUtil;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

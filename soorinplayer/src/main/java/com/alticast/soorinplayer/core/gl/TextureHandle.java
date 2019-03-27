@@ -1,4 +1,4 @@
-package com.alticast.soorinplayer.core.exoplayer;
+package com.alticast.soorinplayer.core.gl;
 
 import android.opengl.GLES20;
 import android.opengl.Matrix;

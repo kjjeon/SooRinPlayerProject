@@ -1,7 +1,7 @@
-package com.alticast.soorinplayer.core;
+package com.alticast.soorinplayer.core.gl;
 
 import android.graphics.SurfaceTexture;
-import com.alticast.soorinplayer.core.exoplayer.TextureHandle;
+import com.alticast.soorinplayer.core.gl.TextureHandle;
 
 public interface VideoTexture {
     SurfaceTexture getSurfaceTexture();

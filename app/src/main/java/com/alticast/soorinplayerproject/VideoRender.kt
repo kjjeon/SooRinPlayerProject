@@ -1,17 +1,9 @@
 package com.alticast.soorinplayerproject
 
 import android.content.Context
-import android.opengl.GLES20
 import android.opengl.GLSurfaceView
-import android.opengl.Matrix
 import android.util.Log
 import com.alticast.soorinplayer.api.SooRinPlayer
-import com.alticast.soorinplayer.core.exoplayer.GLUtil
-import com.alticast.soorinplayer.core.exoplayer.GLUtil.FLOAT_SIZE_BYTES
-import com.alticast.soorinplayer.core.exoplayer.TextureHandle
-import java.nio.ByteBuffer
-import java.nio.ByteOrder
-import java.nio.FloatBuffer
 
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10

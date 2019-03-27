@@ -1,4 +1,4 @@
-package com.alticast.soorinplayer.core.exoplayer;
+package com.alticast.soorinplayer.core.gl;
 
 import android.content.Context;
 import android.graphics.Bitmap;

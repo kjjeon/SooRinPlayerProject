@@ -1,4 +1,4 @@
-package com.alticast.soorinplayer.source;
+package com.alticast.soorinplayer.core.exoplayer.source;
 
 import com.google.android.exoplayer2.upstream.DataSource;
 

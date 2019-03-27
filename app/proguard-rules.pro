@@ -19,3 +19,19 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+## Kotlin
+-keepattributes *Annotation*
+
+-keep class kotlin.** { *; }
+-keep class org.jetbrains.** { *; }
+
+## Common
+-dontnote android.net.http.*
+-dontnote org.apache.http.**
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider

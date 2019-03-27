@@ -1,9 +1,11 @@
-package com.alticast.soorinplayer.core.exoplayer;
+package com.alticast.soorinplayer.core.gl.impl;
 
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.util.Log;
-import com.alticast.soorinplayer.core.VideoTexture;
+import com.alticast.soorinplayer.core.gl.VideoTexture;
+import com.alticast.soorinplayer.core.gl.GLUtil;
+import com.alticast.soorinplayer.core.gl.TextureHandle;
 
 /** GL texture that holds a video frame. */
 public class VideoTextureImpl implements SurfaceTexture.OnFrameAvailableListener, VideoTexture {

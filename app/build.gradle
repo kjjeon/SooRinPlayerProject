@@ -16,7 +16,11 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -24,6 +28,10 @@ android {
         flatDir {
             dirs 'libs'
         }
+    }
+
+    clean {
+        delete fileTree(dir: "libs", include: ['*.aar'])
     }
 }
 

@@ -7,7 +7,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.alticast.soorinplayer.R;
 import com.alticast.soorinplayer.core.MediaPlayer;
-import com.alticast.soorinplayer.source.TsDataSourceFactory;
+import com.alticast.soorinplayer.core.exoplayer.source.TsDataSourceFactory;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
