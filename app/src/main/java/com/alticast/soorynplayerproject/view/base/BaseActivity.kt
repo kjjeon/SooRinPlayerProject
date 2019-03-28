@@ -1,4 +1,4 @@
-package com.alticast.soorinplayerproject.view.base
+package com.alticast.soorynplayerproject.view.base
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

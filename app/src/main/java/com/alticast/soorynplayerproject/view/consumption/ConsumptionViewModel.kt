@@ -1,9 +1,9 @@
-package com.alticast.soorinplayerproject.view.consumption
+package com.alticast.soorynplayerproject.view.consumption
 
 import android.util.Log
 import com.alticast.soorynplayer.api.SooRynPlayer
-import com.alticast.soorinplayerproject.api.PlayerDelegate
-import com.alticast.soorinplayerproject.view.base.BaseViewModel
+import com.alticast.soorynplayerproject.api.PlayerDelegate
+import com.alticast.soorynplayerproject.view.base.BaseViewModel
 
 class ConsumptionViewModel : BaseViewModel() {
 

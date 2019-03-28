@@ -1,4 +1,4 @@
-package com.alticast.soorinplayerproject
+package com.alticast.soorynplayerproject.video
 
 import android.content.Context
 import android.opengl.GLSurfaceView

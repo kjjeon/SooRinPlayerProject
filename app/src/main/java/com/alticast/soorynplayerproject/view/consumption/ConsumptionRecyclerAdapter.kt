@@ -1,4 +1,4 @@
-package com.alticast.soorinplayerproject.view.consumption
+package com.alticast.soorynplayerproject.view.consumption
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.alticast.soorinplayerproject.R
+import com.alticast.soorynplayerproject.R
 import com.jakewharton.rxbinding2.view.clicks
 import com.jakewharton.rxrelay2.PublishRelay
 import io.reactivex.Observable

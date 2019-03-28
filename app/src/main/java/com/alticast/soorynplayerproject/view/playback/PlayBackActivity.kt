@@ -1,4 +1,4 @@
-package com.alticast.soorinplayerproject.view.playback
+package com.alticast.soorynplayerproject.view.playback
 
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
@@ -9,30 +9,30 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.SurfaceHolder
 import com.alticast.soorynplayer.api.SooRynPlayer
-import com.alticast.soorinplayerproject.R
-import com.alticast.soorinplayerproject.VideoRender
-import com.alticast.soorinplayerproject.api.PlayerDelegate
-import com.alticast.soorinplayerproject.test.VideoRender2
-import com.alticast.soorinplayerproject.view.base.BaseActivity
-import com.alticast.soorinplayerproject.view.consumption.ConsumptionActivity
+import com.alticast.soorynplayerproject.R
+import com.alticast.soorynplayerproject.video.VideoRender
+import com.alticast.soorynplayerproject.api.PlayerDelegate
+import com.alticast.soorynplayerproject.test.VideoRender2
+import com.alticast.soorynplayerproject.view.base.BaseActivity
+import com.alticast.soorynplayerproject.view.consumption.ConsumptionActivity
 import kotlinx.android.synthetic.main.activity_playback.*
 
 class PlayBackActivity : BaseActivity(), SurfaceHolder.Callback {
 
     private lateinit var viewModel: PlayBackViewModel
-    private lateinit var sooRInPlayer: SooRynPlayer
+    private lateinit var sooRynPlayer: SooRynPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_playback)
         viewModel = ViewModelProviders.of(this).get(PlayBackViewModel::class.java)
-        sooRInPlayer = PlayerDelegate.build()
+        sooRynPlayer = PlayerDelegate.build()
         exVideoRender1()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        sooRInPlayer.release()
+        sooRynPlayer.release()
         viewModel.stop()
     }
 
@@ -65,7 +65,7 @@ class PlayBackActivity : BaseActivity(), SurfaceHolder.Callback {
 
     private fun exVideoRender1() {
         glsurface_view.setEGLContextClientVersion(2)
-        glsurface_view.setRenderer(VideoRender(applicationContext, sooRInPlayer))
+        glsurface_view.setRenderer(VideoRender(applicationContext, sooRynPlayer))
     }
 
     // mediaplayer를 이용한 샘플
@@ -93,9 +93,9 @@ class PlayBackActivity : BaseActivity(), SurfaceHolder.Callback {
     }
 
     override fun surfaceCreated(holder: SurfaceHolder?) {
-        if(!sooRInPlayer.isPlaying)
-            sooRInPlayer.playback(holder, R.raw.vid_bigbuckbunny)
-//        PlayerDelegate.sooRinPlayer.playback(applicationContext,holder,Uri.parse("rawresource" + ":///" + R.raw.sbs))
+        if(!sooRynPlayer.isPlaying)
+            sooRynPlayer.playback(holder, R.raw.vid_bigbuckbunny)
+//        PlayerDelegate.sooRynPlayer.playback(applicationContext,holder,Uri.parse("rawresource" + ":///" + R.raw.sbs))
     }
 
     companion object {

@@ -1,4 +1,4 @@
-package com.alticast.soorinplayerproject
+package com.alticast.soorynplayerproject
 
 import org.junit.Test
 

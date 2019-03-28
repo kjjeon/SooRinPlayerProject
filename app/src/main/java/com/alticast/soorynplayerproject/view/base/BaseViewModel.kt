@@ -1,4 +1,4 @@
-package com.alticast.soorinplayerproject.view.base
+package com.alticast.soorynplayerproject.view.base
 
 import android.arch.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable

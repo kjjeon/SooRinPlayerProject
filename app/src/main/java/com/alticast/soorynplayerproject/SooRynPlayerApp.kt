@@ -1,10 +1,10 @@
-package com.alticast.soorinplayerproject
+package com.alticast.soorynplayerproject
 
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 
-class SooRInPlayerApp : Application() {
+class SooRynPlayerApp : Application() {
 
     override fun onCreate() {
         super.onCreate()

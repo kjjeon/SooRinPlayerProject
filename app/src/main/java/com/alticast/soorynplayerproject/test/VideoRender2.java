@@ -1,4 +1,4 @@
-package com.alticast.soorinplayerproject.test;
+package com.alticast.soorynplayerproject.test;
 
 import android.content.Context;
 import android.graphics.SurfaceTexture;

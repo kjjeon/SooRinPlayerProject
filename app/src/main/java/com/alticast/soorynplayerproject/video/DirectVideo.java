@@ -1,4 +1,4 @@
-package com.alticast.soorinplayerproject;
+package com.alticast.soorynplayerproject.video;
 
 import android.opengl.GLES20;
 import com.alticast.soorynplayer.core.gl.GLUtil;
@@ -83,8 +83,6 @@ public class DirectVideo
 
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
     }
-
-
 
     public void draw(float[] videoMatrix)
     {

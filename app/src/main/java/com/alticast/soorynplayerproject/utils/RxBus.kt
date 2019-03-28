@@ -1,4 +1,4 @@
-package com.alticast.soorinplayerproject.utils
+package com.alticast.soorynplayerproject.utils
 
 import com.jakewharton.rxrelay2.PublishRelay
 import io.reactivex.Observable

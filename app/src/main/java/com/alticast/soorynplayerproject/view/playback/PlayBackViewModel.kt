@@ -1,6 +1,6 @@
-package com.alticast.soorinplayerproject.view.playback
+package com.alticast.soorynplayerproject.view.playback
 
-import com.alticast.soorinplayerproject.view.base.BaseViewModel
+import com.alticast.soorynplayerproject.view.base.BaseViewModel
 
 class PlayBackViewModel : BaseViewModel() {
 

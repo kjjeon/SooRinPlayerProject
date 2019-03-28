@@ -1,11 +1,10 @@
-package com.alticast.soorinplayerproject.view.consumption
+package com.alticast.soorynplayerproject.view.consumption
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
-import com.alticast.soorinplayerproject.R
-import com.alticast.soorinplayerproject.view.base.BaseActivity
+import com.alticast.soorynplayerproject.R
+import com.alticast.soorynplayerproject.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_consumption.*
 
 class ConsumptionActivity : BaseActivity() {

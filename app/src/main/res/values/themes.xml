@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="SooRin" parent="Theme.AppCompat.NoActionBar">
+    <style name="SooRyn" parent="Theme.AppCompat.NoActionBar">
     </style>
 
-    <style name="SooRin.Base" parent="SooRin">
+    <style name="SooRyn.Base" parent="SooRyn">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:colorControlHighlight">@android:color/holo_blue_light</item>
     </style>
 
-    <style name="SooRin.Base.Transparent" parent="SooRin.Base">
+    <style name="SooRyn.Base.Transparent" parent="SooRyn.Base">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
@@ -19,7 +19,7 @@
         <!--<item name="android:windowAnimationStyle">@null</item>-->
     </style>
 
-    <style name="SooRin.Base.Translucent" parent="SooRin.Base.Transparent">
+    <style name="SooRyn.Base.Translucent" parent="SooRyn.Base.Transparent">
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 

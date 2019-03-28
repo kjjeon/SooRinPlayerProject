@@ -1,7 +1,7 @@
-package com.alticast.soorinplayerproject.api
+package com.alticast.soorynplayerproject.api
 
 import com.alticast.soorynplayer.api.SooRynPlayer
-import com.alticast.soorinplayerproject.SooRInPlayerApp
+import com.alticast.soorynplayerproject.SooRynPlayerApp
 
 
 object PlayerDelegate {
@@ -10,7 +10,7 @@ object PlayerDelegate {
 
     fun build(): SooRynPlayer = run {
         if(!::sooRynPlayer.isInitialized) {
-            sooRynPlayer = SooRynPlayer(SooRInPlayerApp.context)
+            sooRynPlayer = SooRynPlayer(SooRynPlayerApp.context)
         }
         sooRynPlayer
     }
