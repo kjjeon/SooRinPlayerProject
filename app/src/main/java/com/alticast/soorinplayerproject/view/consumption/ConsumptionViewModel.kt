@@ -1,31 +1,31 @@
 package com.alticast.soorinplayerproject.view.consumption
 
 import android.util.Log
-import com.alticast.soorinplayer.api.SooRinPlayer
+import com.alticast.soorynplayer.api.SooRynPlayer
 import com.alticast.soorinplayerproject.api.PlayerDelegate
 import com.alticast.soorinplayerproject.view.base.BaseViewModel
 
 class ConsumptionViewModel : BaseViewModel() {
 
-    private var sooRinPlayer: SooRinPlayer = PlayerDelegate.build()
+    private var sooRynPlayer: SooRynPlayer = PlayerDelegate.build()
 
     fun doKeyHandle(key: String) {
         Log.d(TAG,"postion = $key")
         when (key) {
             "play" -> {
-                sooRinPlayer.playback()
+                sooRynPlayer.playback()
             }
             "pause" -> {
-                sooRinPlayer.pause()
+                sooRynPlayer.pause()
             }
             "resume" -> {
-                sooRinPlayer.resume()
+                sooRynPlayer.resume()
             }
             "stop" -> {
-                sooRinPlayer.stop()
+                sooRynPlayer.stop()
             }
             "release" -> {
-                sooRinPlayer.release()
+                sooRynPlayer.release()
             }
         }
     }

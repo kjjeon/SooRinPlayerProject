@@ -51,9 +51,9 @@ dependencies {
 
 task copyAAR(type: Copy) {
     from('build/tmp/copyDebugDependencies/debug/libs')
-    into '../soorinplayer/libs'
+    into '../soorynplayer/libs'
     include '*.jar'
-//    ['../soorinplayer/libs', '../app/libs/'].each { dest ->
+//    ['../soorynplayer/libs', '../app/libs/'].each { dest ->
 //        copy {
 //            from('build/outputs/aar/')
 //            into dest
@@ -61,6 +61,6 @@ task copyAAR(type: Copy) {
 //        }
 //    }
 //    from('build/outputs/aar/')
-//    into '../soorinplayer/libs'
+//    into '../soorynplayer/libs'
 //    include '*.aar'
 }

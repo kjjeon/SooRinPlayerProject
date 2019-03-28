@@ -3,14 +3,14 @@ package com.alticast.soorinplayerproject
 import android.content.Context
 import android.opengl.GLSurfaceView
 import android.util.Log
-import com.alticast.soorinplayer.api.SooRinPlayer
+import com.alticast.soorynplayer.api.SooRynPlayer
 
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 
 class VideoRender constructor(
     private val context: Context,
-    private val sooRinPlayer: SooRinPlayer
+    private val sooRynPlayer: SooRynPlayer
 ) : GLSurfaceView.Renderer {
     private lateinit var directVideo: DirectVideo
     override fun onSurfaceChanged(gl: GL10?, width: Int, height: Int) {
@@ -19,7 +19,7 @@ class VideoRender constructor(
 
     override fun onSurfaceCreated(gl: GL10?, config: EGLConfig?) {
         Log.d(TAG, "onSurfaceCreated")
-        sooRinPlayer.playback()
+        sooRynPlayer.playback()
         directVideo = DirectVideo()
     }
 
@@ -27,11 +27,11 @@ class VideoRender constructor(
     override fun onDrawFrame(gl: GL10?) {
         synchronized(this) {
             //            Log.d(TAG,"onDrawFrame")
-            sooRinPlayer.videoTexture.updateTexture()
+            sooRynPlayer.videoTexture.updateTexture()
 
 //            GLES20.glClearColor(0.0f, 1.0f, 0.0f, 1.0f) //색상 설정
 //            GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT or GLES20.GL_COLOR_BUFFER_BIT) //설정한 색상값으로 지우기 (컬러 버퍼와 깊이 버퍼)
-            directVideo.draw(sooRinPlayer.videoTexture.videoMatrix)
+            directVideo.draw(sooRynPlayer.videoTexture.videoMatrix)
 
         }
     }

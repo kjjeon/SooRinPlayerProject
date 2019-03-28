@@ -8,7 +8,7 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.SurfaceHolder
-import com.alticast.soorinplayer.api.SooRinPlayer
+import com.alticast.soorynplayer.api.SooRynPlayer
 import com.alticast.soorinplayerproject.R
 import com.alticast.soorinplayerproject.VideoRender
 import com.alticast.soorinplayerproject.api.PlayerDelegate
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_playback.*
 class PlayBackActivity : BaseActivity(), SurfaceHolder.Callback {
 
     private lateinit var viewModel: PlayBackViewModel
-    private lateinit var sooRInPlayer: SooRinPlayer
+    private lateinit var sooRInPlayer: SooRynPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
