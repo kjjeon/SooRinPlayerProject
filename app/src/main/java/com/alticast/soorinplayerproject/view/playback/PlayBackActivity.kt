@@ -5,6 +5,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.SurfaceHolder
 import com.alticast.soorinplayer.api.SooRinPlayer
@@ -44,6 +45,23 @@ class PlayBackActivity : BaseActivity(), SurfaceHolder.Callback {
         }
         return super.dispatchTouchEvent(ev)
     }
+
+    override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean =
+        when(keyCode) {
+            KeyEvent.KEYCODE_DPAD_CENTER->{
+                Log.d(TAG,"keyCode = $keyCode")
+                Intent(this, ConsumptionActivity::class.java).let {
+                    it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                    applicationContext.startActivity(it)
+                }
+                true
+            }
+            else ->{
+                Log.d(TAG,"keyCode = $keyCode")
+                super.onKeyUp(keyCode,event)
+            }
+        }
+
 
     private fun exVideoRender1() {
         glsurface_view.setEGLContextClientVersion(2)

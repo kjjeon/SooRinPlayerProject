@@ -3,6 +3,8 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.alticast.soorinplayerproject">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:name=".SooRInPlayerApp"
             android:allowBackup="false"
@@ -12,8 +14,7 @@
             android:supportsRtl="true"
             android:theme="@style/SooRin.Base.Transparent"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.playback.PlayBackActivity"
-                  android:screenOrientation="landscape">
+        <activity android:name=".view.playback.PlayBackActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -21,9 +22,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.consumption.ConsumptionActivity"
-                  android:screenOrientation="landscape"
                   android:theme="@style/SooRin.Base.Translucent">
         </activity>
     </application>
 
 </manifest>
+
+        <!--android:screenOrientation="landscape"-->

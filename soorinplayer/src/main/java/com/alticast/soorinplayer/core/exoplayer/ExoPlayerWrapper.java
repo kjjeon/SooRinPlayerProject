@@ -15,6 +15,7 @@ import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.LoopingMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.hls.HlsMediaSource;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
@@ -91,15 +92,22 @@ public class ExoPlayerWrapper implements MediaPlayer {
         player = ExoPlayerFactory.newSimpleInstance(context, trackSelector);
         Surface surface = new Surface(surfaceTexture);
         player.setVideoSurface(surface);
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(context,
-                Util.getUserAgent(context, "SooRinPlayer"));
 
-        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
-                .createMediaSource(RawResourceDataSource.buildRawResourceUri(R.raw.test));
+        DataSource.Factory dataSourceFactory = new DefaultHttpDataSourceFactory(Util.getUserAgent(context, "SooRinPlayer"));
 
-        LoopingMediaSource loopingMediaSource = new LoopingMediaSource(videoSource,2);
+        HlsMediaSource videoSource = new HlsMediaSource.Factory(dataSourceFactory)
+                .createMediaSource(Uri.parse("https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8"));
+//        HlsMediaSource videoSource = new HlsMediaSource.Factory(dataSourceFactory)
+//                .createMediaSource(Uri.parse("http://livecdn2.pandora.tv/yunhap-f2b26ebe5b7e4599bce3902f567c6c043b31/playlist.m3u8"));
+
+//        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(context,
+//                Util.getUserAgent(context, "SooRinPlayer"));
+//
+//        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+//                .createMediaSource(RawResourceDataSource.buildRawResourceUri(R.raw.test));
+
         // Prepare the player with the source.
-        player.prepare(loopingMediaSource);
+        player.prepare(videoSource);
         //auto start playing
         player.setPlayWhenReady(true);
         return Constants.SUCCESS;
